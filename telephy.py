@@ -101,13 +101,13 @@ def handle(msg):
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/status':
-                bot.sendMessage(chat_id, "Ruang Depan : " + str(output.RELAY1_STATUS()))
+                bot.sendMessage(chat_id, "Ruang Depan : " + output.RELAY1_STATUS)
                 time.sleep(5)
-                bot.sendMessage(chat_id, "Ruang Tengah : " + str(output.RELAY2_STATUS()))
+                bot.sendMessage(chat_id, "Ruang Tengah : " + output.RELAY2_STATUS)
                 time.sleep(5)
-                bot.sendMessage(chat_id, "Ruang Belakang : " + str(output.RELAY3_STATUS()))
+                bot.sendMessage(chat_id, "Ruang Belakang : " + output.RELAY3_STATUS)
                 time.sleep(5)
-                bot.sendMessage(chat_id, "Ruang Atas : " + str(output.RELAY4_STATUS()))
+                bot.sendMessage(chat_id, "Ruang Atas : " + output.RELAY4_STATUS)
         else:
                 bot.sendMessage(chat_id, "Perintah tidak ditemukan, gunakan /bantuan untuk melihat bantuan yang ada.")
 
