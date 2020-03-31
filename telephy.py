@@ -33,21 +33,29 @@ def handle(msg):
                         if command_split[1] == 'ruangdepan':
                                 bot.sendMessage(chat_id, "Ruang Depan Hidup")
                                 output.relay1.on()
+                                output.RELAY1_STATUS = "ON"
                         elif command_split[1] == 'ruangtengah':
                                 bot.sendMessage(chat_id, "Ruang Tengah Hidup")
                                 output.relay2.on()
+                                output.RELAY2_STATUS = "ON"
                         elif command_split[1] == 'ruangbelakang':
                                 bot.sendMessage(chat_id, "Ruang Belakang Hidup")
                                 output.relay3.on()
+                                output.RELAY3_STATUS = "ON"
                         elif command_split[1] == 'ruangatas':
                                 bot.sendMessage(chat_id, "Ruang Atas Hidup")
                                 output.relay4.on()
+                                output.RELAY4_STATUS = "ON"
                         elif command_split[1] == 'semua':
                                 bot.sendMessage(chat_id, "Semua Ruangan Hidup")
                                 output.relay1.on()
+                                output.RELAY1_STATUS = "ON"
                                 output.relay2.on()
+                                output.RELAY2_STATUS = "ON"
                                 output.relay3.on()
+                                output.RELAY3_STATUS = "ON"
                                 output.relay4.on()
+                                output.RELAY4_STATUS = "ON"
                         else:
                                 bot.sendMessage(chat_id, "Lokasi tidak diketahui.")
                 else:
@@ -57,21 +65,29 @@ def handle(msg):
                         if command_split[1] == 'ruangdepan':
                                 bot.sendMessage(chat_id, "Ruang Depan Mati")
                                 output.relay1.off()
+                                output.RELAY1_STATUS = "OFF"
                         elif command_split[1] == 'ruangtengah':
                                 bot.sendMessage(chat_id, "Ruang Tengah Mati")
                                 output.relay2.off()
+                                output.RELAY2_STATUS = "OFF"
                         elif command_split[1] == 'ruangbelakang':
                                 bot.sendMessage(chat_id, "Ruang Belakang Mati")
                                 output.relay3.off()
+                                output.RELAY3_STATUS = "OFF"
                         elif command_split[1] == 'ruangatas':
                                 bot.sendMessage(chat_id, "Ruang Atas Mati")
                                 output.relay4.off()
+                                output.RELAY4_STATUS = "OFF"
                         elif command_split[1] == 'semua':
                                 bot.sendMessage(chat_id, "Semua Ruangan Mati")
                                 output.relay1.off()
+                                output.RELAY1_STATUS = "OFF"
                                 output.relay2.off()
+                                output.RELAY2_STATUS = "OFF"
                                 output.relay3.off()
+                                output.RELAY3_STATUS = "OFF"
                                 output.relay4.off()
+                                output.RELAY4_STATUS = "OFF"
                         else:
                                 bot.sendMessage(chat_id, "Lokasi tidak diketahui.")
                 else:
@@ -84,7 +100,14 @@ def handle(msg):
                                 bot.sendMessage(chat_id, "Lokasi tidak diketahui.")
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
-
+        elif command_cmd == '/status':
+                bot.sendMessage(chat_id, "Ruang Depan : " + str(output.RELAY1_STATUS()))
+                time.sleep(5)
+                bot.sendMessage(chat_id, "Ruang Tengah : " + str(output.RELAY2_STATUS()))
+                time.sleep(5)
+                bot.sendMessage(chat_id, "Ruang Belakang : " + str(output.RELAY3_STATUS()))
+                time.sleep(5)
+                bot.sendMessage(chat_id, "Ruang Atas : " + str(output.RELAY4_STATUS()))
         else:
                 bot.sendMessage(chat_id, "Perintah tidak ditemukan, gunakan /bantuan untuk melihat bantuan yang ada.")
 

@@ -10,6 +10,16 @@ RELAY6_PIN = 6
 RELAY7_PIN = 7
 RELAY8_PIN = 8
 
+# Variabel untuk menampung status masing-masing pin
+RELAY1_STATUS="OFF"
+RELAY2_STATUS="OFF"
+RELAY3_STATUS="OFF"
+RELAY4_STATUS="OFF"
+RELAY5_STATUS="OFF"
+RELAY6_STATUS="OFF"
+RELAY7_STATUS="OFF"
+RELAY8_STATUS="OFF"
+
 # Setelah menentukan pin, kemudian menggunakan pin tersebut untuk output device
 relay1 = gpiozero.OutputDevice(RELAY1_PIN, active_high=False, initial_value=False)
 relay2 = gpiozero.OutputDevice(RELAY2_PIN, active_high=False, initial_value=False)
