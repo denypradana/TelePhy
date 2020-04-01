@@ -15,7 +15,7 @@ def handle(msg):
         command_cmd = command_split[0]
 
         # Menampilkan perintah yang diterima dari user
-        print("Pada "+ str(function.tanggal()) + " "+ str(function.jam()) + ", user id " + str(chat_id) + " memberikan perintah " + str(command))
+        print("Pada "+ str(function.tanggal()) + " "+ str(function.jam()) + ", user id " + str(chat_id) + " memberikan perintah '" + str(command) + "'.")
 
         # Melakukan aksi berdasarkan perintah yang diterima
         if command == '/start':
