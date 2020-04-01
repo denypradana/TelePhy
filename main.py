@@ -3,8 +3,7 @@ import function
 import login
 import output
 import telegram
-#import gpiozero
-from gpiozero import LED
+import gpiozero
 
 def handle(msg):
 
@@ -32,9 +31,7 @@ def handle(msg):
                         bot.sendMessage(chat_id, "Maaf, password salah atau user tidak terdaftar, silahkan coba lagi.")
         elif command_cmd == '/on':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        led=LED[1]
-                        led.off()
-                        #bot.sendMessage(chat_id,function.ondevice(command_split[1]))
+                        bot.sendMessage(chat_id,function.ondevice(command_split[1]))
                         """
                         if command_split[1] == 'ruangdepan':
                                 bot.sendMessage(chat_id, "Ruang Depan Hidup")
