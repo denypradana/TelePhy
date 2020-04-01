@@ -56,6 +56,7 @@ def offdevice(devid):
                         GPIO.setmode(GPIO.BCM)
                         GPIO.setup(DEVICE_PIN,GPIO.OUT)
                         GPIO.output(DEVICE_PIN,GPIO.HIGH)
+                        GPIO.cleanup()
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
