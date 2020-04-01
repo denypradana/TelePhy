@@ -39,9 +39,9 @@ def cekpass(uid,pwd):
 def ondevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
-                        DEVICE_PIN = int(element['gpiopin'])
-                        deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceout.on()
+                        output.DEVICE_PIN = int(element['gpiopin'])
+                        #deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        output.deviceout.on()
                         return element['namadevice'] + " Hidup pada pin " + str(DEVICE_PIN)
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
@@ -50,9 +50,9 @@ def ondevice(devid):
 def offdevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
-                        DEVICE_PIN = int(element['gpiopin'])
-                        deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceout.off()
+                        output.DEVICE_PIN = int(element['gpiopin'])
+                        #deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        output.deviceout.off()
                         return element['namadevice'] + " Mati pada pin " + str(DEVICE_PIN)
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"

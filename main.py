@@ -31,12 +31,7 @@ def handle(msg):
                         bot.sendMessage(chat_id, "Maaf, password salah atau user tidak terdaftar, silahkan coba lagi.")
         elif command_cmd == '/on':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        #function.ondevice(command_split[1])
-                        #bot.sendMessage(chat_id,function.ondevice(command_split[1]))
-                        DEVICE_PIN = 1
-                        deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        time.sleep(5)
-                        deviceout.on()
+                        bot.sendMessage(chat_id,function.ondevice(command_split[1]))
                         """
                         if command_split[1] == 'ruangdepan':
                                 bot.sendMessage(chat_id, "Ruang Depan Hidup")
@@ -71,8 +66,7 @@ def handle(msg):
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/off':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        function.offdevice(command_split[1])
-                        #bot.sendMessage(chat_id,function.offdevice(command_split[1]))
+                        bot.sendMessage(chat_id,function.offdevice(command_split[1]))
                         """
                         if command_split[1] == 'ruangdepan':
                                 bot.sendMessage(chat_id, "Ruang Depan Mati")
