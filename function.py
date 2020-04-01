@@ -96,6 +96,7 @@ def statdevice(devid):
                 if element['iddevice'] == devid:
                         DEVICE_PIN = int(element['gpiopin'])
                         GPIO.setmode(GPIO.BCM)
+                        GPIO.setup(DEVICE_PIN,GPIO.OUT)
                         state = GPIO.input(DEVICE_PIN)
 
                         # Untuk device lain selain relay, ganti Mati menjadi Hidup dan sebaliknya
@@ -111,6 +112,7 @@ def statalldevice(chat_id):
         for element in output.output_array:
                 DEVICE_PIN = int(element['gpiopin'])
                 GPIO.setmode(GPIO.BCM)
+                GPIO.setup(DEVICE_PIN,GPIO.OUT)
                 state = GPIO.input(DEVICE_PIN)
 
                 # Untuk device lain selain relay, ganti Mati menjadi Hidup dan sebaliknya
