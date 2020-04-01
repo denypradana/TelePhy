@@ -3,7 +3,6 @@ from gpiozero import OutputDevice
 from time import sleep
 
 import input
-import output
 import login
 import json
 
@@ -35,31 +34,3 @@ def cekpass(uid,pwd):
         else:
                 login.password_sekarang = ""
                 return False
-
-# Fungsi untuk menghidupkan device
-def ondevice(devid):
-        for element in output.output_array:
-                if element['iddevice'] == devid:
-                        DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceswitch.on()
-                        return element['namadevice'] + " Hidup"
-        else:
-                return "ID Device " + str(devid) + " tidak ditemukan"
-
-# Fungsi untuk mematikan device
-def offdevice(devid):
-        for element in output.output_array:
-                if element['iddevice'] == devid:
-                        DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceswitch.off()
-                        return element['namadevice'] + " Mati"
-        else:
-                return "ID Device " + str(devid) + " tidak ditemukan"
-
-try:
-        while 1:
-                sleep(10)
-except KeyboardInterrupt:
-        print('Fungsi Error')
