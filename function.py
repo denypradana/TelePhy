@@ -3,9 +3,13 @@ import RPi.GPIO as GPIO
 import input
 import output
 import login
+import telegram
 
 # Menyembunyikan warning dari GPIO
 GPIO.setwarnings(False)
+
+# Inisialisasi bit telegram
+bot = telegram.bot
 
 # Fungsi untuk membaca suhu dari sensor yang ada pada modul input
 def suhu():
@@ -65,7 +69,7 @@ def offdevice(devid):
                 return "ID Device " + str(devid) + " tidak ditemukan"
 
 # Fungsi untuk menghidupkan semua device
-def onalldevice():
+def onalldevice(chat_id):
         for element in output.output_array:
                 DEVICE_PIN = int(element['gpiopin'])
                 GPIO.setmode(GPIO.BCM)
@@ -73,12 +77,14 @@ def onalldevice():
 
                 # Untuk device lain selain relay, ganti GPIO.LOW menjadi GPIO.HIGH
                 GPIO.output(DEVICE_PIN,GPIO.LOW)
-                return element['namadevice'] + " Hidup"
+                bot.sendMessage(chat_id,element['namadevice'] + " Hidup")
+                #return element['namadevice'] + " Hidup"
         else:
-                return "Error tidak diketahui"
+                bot.sendMessage(chat_id,"Error tidak diketahui")
+                #return "Error tidak diketahui"
 
 # Fungsi untuk mematikan semua device
-def offalldevice():
+def offalldevice(chat_id):
         for element in output.output_array:
                 DEVICE_PIN = int(element['gpiopin'])
                 GPIO.setmode(GPIO.BCM)
@@ -86,6 +92,8 @@ def offalldevice():
 
                 # Untuk device lain selain relay, ganti GPIO.HIGH menjadi GPIO.LOW
                 GPIO.output(DEVICE_PIN,GPIO.HIGH)
-                return element['namadevice'] + " Mati"
+                bot.sendMessage(chat_id,element['namadevice'] + " Mati")
+                #return element['namadevice'] + " Mati"
         else:
-                return "Error tidak diketahui"
+                bot.sendMessage(chat_id,"Error tidak diketahui")
+                #return "Error tidak diketahui"

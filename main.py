@@ -34,12 +34,15 @@ def handle(msg):
                         if command_split[1] != 'semua':
                                 bot.sendMessage(chat_id,function.ondevice(command_split[1]))
                         elif command_split[1] == 'semua':
-                                bot.sendMessage(chat_id,function.onalldevice())
+                                function.onalldevice(chat_id)
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/off':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        bot.sendMessage(chat_id,function.offdevice(command_split[1]))
+                        if command_split[1] != 'semua':
+                                bot.sendMessage(chat_id,function.offdevice(command_split[1]))
+                        elif command_split[1] == 'semua':
+                                function.offalldevice(chat_id)
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/info':
