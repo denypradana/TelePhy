@@ -1,17 +1,17 @@
 import json
 import gpiozero
 
-output_data = '[{"idruangan":"ruangdepan","namaruangan":"Ruang Depan","status":"OFF","gpiopin":1},{"idruangan":"ruangtengah","namaruangan":"Ruang Tengah","status":"OFF","gpiopin":2},{"idruangan":"ruangbelakang","namaruangan":"Ruang Belakang","status":"OFF","gpiopin":3},{"idruangan":"ruangatas","namaruangan":"Ruang Atas","status":"OFF","gpiopin":4}]'
+output_data = '[{"iddevice":"ruangdepan","namadevice":"Ruang Depan","status":"OFF","gpiopin":1},{"iddevice":"ruangtengah","namadevice":"Ruang Tengah","status":"OFF","gpiopin":2},{"iddevice":"ruangbelakang","namadevice":"Ruang Belakang","status":"OFF","gpiopin":3},{"iddevice":"ruangatas","namadevice":"Ruang Atas","status":"OFF","gpiopin":4}]'
 output_array = json.loads(output_data)
 # Inisialisasi GPIO, menentukan pin yang digunakan untuk output. 
-RELAY1_PIN = 1
-RELAY2_PIN = 2
-RELAY3_PIN = 3
-RELAY4_PIN = 4
-RELAY5_PIN = 5
-RELAY6_PIN = 6
-RELAY7_PIN = 7
-RELAY8_PIN = 8
+#RELAY1_PIN = 1
+#RELAY2_PIN = 2
+#RELAY3_PIN = 3
+#RELAY4_PIN = 4
+#RELAY5_PIN = 5
+#RELAY6_PIN = 6
+#RELAY7_PIN = 7
+#RELAY8_PIN = 8
 
 # Variabel untuk menampung status masing-masing pin
 RELAY1_STATUS="OFF"

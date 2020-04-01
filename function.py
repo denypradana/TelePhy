@@ -38,7 +38,7 @@ def cekpass(uid,pwd):
 # Fungsi untuk menghidupkan device
 def ondevice(devid):
         for element in output.output_array:
-                if element['iddevice'] == str(devid):
+                if element['iddevice'] == devid:
                         deviceout = gpiozero.OutputDevice(element['gpiopin'],active_high=False,initial_value=False)
                         deviceout.on()
                         status["status"] = "ON"
@@ -50,7 +50,7 @@ def ondevice(devid):
 # Fungsi untuk mematikan device
 def offdevice(devid):
         for element in output.output_array:
-                if element['iddevice'] == str(devid):
+                if element['iddevice'] == devid:
                         deviceout = gpiozero.OutputDevice(element['gpiopin'],active_high=False,initial_value=False)
                         deviceout.off()
                         status["status"] = "OFF"
