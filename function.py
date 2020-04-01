@@ -1,9 +1,10 @@
 from datetime import datetime
+from gpiozero import OutputDevice
+from time import sleep
 
 import input
 import output
 import login
-import gpiozero
 import json
 
 # Fungsi untuk membaca suhu dari sensor yang ada pada modul input
@@ -40,8 +41,9 @@ def ondevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
                         DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         deviceswitch.on()
+                        sleep(1)
                         return element['namadevice'] + " Hidup"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
@@ -51,8 +53,9 @@ def offdevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
                         DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         deviceswitch.off()
+                        sleep(1)
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
