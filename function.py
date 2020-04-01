@@ -1,6 +1,6 @@
 from datetime import datetime
 from gpiozero import OutputDevice
-from time import sleep
+from signal import pause
 
 import input
 import output
@@ -38,16 +38,15 @@ def cekpass(uid,pwd):
 
 # Fungsi untuk menghidupkan device
 def ondevice(devid):
-        while 1:
-                for element in output.output_array:
-                        if element['iddevice'] == devid:
-                                DEVICE_PIN = int(element['gpiopin'])
-                                deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                                deviceswitch.on()
-                                return element['namadevice'] + " Hidup"
-                else:
-                        return "ID Device " + str(devid) + " tidak ditemukan"
-                sleep(1)
+        for element in output.output_array:
+                if element['iddevice'] == devid:
+                        DEVICE_PIN = int(element['gpiopin'])
+                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        deviceswitch.on()
+                        pause()
+                        return element['namadevice'] + " Hidup"
+        else:
+                return "ID Device " + str(devid) + " tidak ditemukan"
 
 # Fungsi untuk mematikan device
 def offdevice(devid):
