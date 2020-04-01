@@ -1,6 +1,7 @@
 from datetime import datetime
-from gpiozero import OutputDevice
+#from gpiozero import OutputDevice
 from signal import pause
+import RPi.GPIO as GPIO
 
 import input
 import output
@@ -41,9 +42,9 @@ def ondevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
                         DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceswitch.on()
-                        pause()
+                        
+                        #deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        #deviceswitch.on()
                         return element['namadevice'] + " Hidup"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
@@ -53,8 +54,8 @@ def offdevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
                         DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceswitch.off()
+                        #deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        #deviceswitch.off()
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
