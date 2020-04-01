@@ -35,6 +35,7 @@ def handle(msg):
                         #bot.sendMessage(chat_id,function.ondevice(command_split[1]))
                         DEVICE_PIN = 1
                         deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
+                        time.sleep(5)
                         deviceout.on()
                         """
                         if command_split[1] == 'ruangdepan':
