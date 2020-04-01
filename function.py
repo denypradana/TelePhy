@@ -43,7 +43,8 @@ def ondevice(devid):
                         deviceout.on()
                         status = output.output_array
                         status["status"] = "ON"
-                        json.dumps(status,output.output_data)
+                        status["iddevice"] = devid
+                        json.dumps(status)
                         return element['namadevice'] + " Hidup"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
@@ -56,7 +57,8 @@ def offdevice(devid):
                         deviceout.off()
                         status = output.output_array
                         status["status"] = "OFF"
-                        json.dumps(status,output.output_data)
+                        status["iddevice"] = devid
+                        json.dumps(status)
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
