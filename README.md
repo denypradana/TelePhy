@@ -35,3 +35,13 @@ Untuk menjalankan TelePhy, gunakan perintah berikut :
 ```
 pi@raspberrypi:~/TelePhy $ python3 main.py
 ```
+
+## Konfigurasi TelePhy
+File Konfigurasi TelePhy terdapat pada beberapa file sesuai dengan konfigurasinya, edit file-file berikut ini untuk mengganti konfigurasi :
+
+**Note :** Lakukan backup terlebih dahulu sebelum melakukan perubahan konfigurasi !
+
+- Untuk menambah, menghapus, mengedit user --> login.py
+- Untuk menambah, menghapus, mengedit sensor --> input.py
+- Untuk menambah, menghapus, mengedit device --> output.py
+- Untuk konfigurasi bot telegram --> telegram.py

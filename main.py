@@ -19,7 +19,7 @@ def handle(msg):
 
         # Melakukan aksi berdasarkan perintah yang diterima
         if command == '/start':
-                bot.sendMessage(chat_id, "Selamat Datang di RB07-Pi, saya sebagai bot siap melayani anda. Ketik /bantuan untuk melihat bantuan atau ketik /pwd PasswordAnda untuk login.")
+                bot.sendMessage(chat_id, "Selamat Datang di RB07-Pi, saya sebagai bot siap melayani anda. Ketik /bantuan untuk melihat bantuan atau ketik /pwd Password_Anda untuk login.")
         elif command == '/waktu':
                 bot.sendMessage(chat_id, "Waktu server menunjukkan sekarang tanggal " + function.tanggal() + " dan pukul " + function.jam() + " WIB.")
         elif command == '/bantuan':
@@ -44,7 +44,7 @@ def handle(msg):
                         elif command_split[1] == 'semua':
                                 function.onalldevice(chat_id)
                 else:
-                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
+                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd Password_Anda.")
         elif command_cmd == '/off':
                 if function.cekpass(chat_id,login.password_sekarang):
                         if command_split[1] != 'semua':
@@ -52,7 +52,7 @@ def handle(msg):
                         elif command_split[1] == 'semua':
                                 function.offalldevice(chat_id)
                 else:
-                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
+                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd Password_Anda.")
         elif command_cmd == '/info':
                 if function.cekpass(chat_id,login.password_sekarang):
                         if command_split[1] == 'suhu':
@@ -60,7 +60,7 @@ def handle(msg):
                         else:
                                 bot.sendMessage(chat_id, "Sensor tidak ada.")
                 else:
-                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
+                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd Password_Anda.")
         elif command_cmd == '/status':
                 if function.cekpass(chat_id,login.password_sekarang):
                         if command_split[1] != 'semua':
@@ -68,12 +68,12 @@ def handle(msg):
                         elif command_split[1] == 'semua':
                                 function.statalldevice(chat_id)
                 else:
-                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
+                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd Password_Anda.")
         elif command_cmd == '/listdevice':
                 if function.cekpass(chat_id,login.password_sekarang):
                         function.listdevice(chat_id)
                 else:
-                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
+                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd Password_Anda.")
         else:
                 bot.sendMessage(chat_id, "Perintah tidak ditemukan, gunakan /bantuan untuk melihat bantuan yang ada.")
 
@@ -81,7 +81,7 @@ def handle(msg):
 bot = telegram.bot
 bot.message_loop(handle)
 print("################################################")
-print("# TelePhy versi 0.2                            #")
+print("# TelePhy versi 1.0                            #")
 print("# kontrol RaspberryPi anda dengan bot telegram #")
 print("# dibuat oleh Deny Pradana                     #")
 print("#                                              #")

@@ -1,6 +1,6 @@
 import json
 
-# Variabel output_data merupaan variabel JSON yang berisi daftar device beserta pin yang digunakan.
+# Variabel output_data merupakan variabel JSON yang berisi daftar device beserta pin yang digunakan.
 # Untuk menambahkan device, tambahkan detail device kedalam JSON output_data sesuai dengan
 # format yang ada.
 #
