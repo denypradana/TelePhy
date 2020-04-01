@@ -124,4 +124,4 @@ def statalldevice(chat_id):
 # Fungsi untuk mendapatkan list semua device
 def listdevice(chat_id):
         for element in output.output_array:
-                bot.sendMessage(chat_id,"ID Device : " + element['iddevice'] + ". Nama Device :" + element['namadevice'] + " & Lokasi Device di GPIO" + element['gpiopin'])
+                bot.sendMessage(chat_id,"ID Device : " + element['iddevice'] + ". Nama Device : " + element['namadevice'] + " & Lokasi Device di GPIO" + element['gpiopin'])

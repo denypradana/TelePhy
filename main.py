@@ -23,7 +23,15 @@ def handle(msg):
         elif command == '/waktu':
                 bot.sendMessage(chat_id, "Waktu server menunjukkan sekarang tanggal " + function.tanggal() + " dan pukul " + function.jam() + " WIB.")
         elif command == '/bantuan':
-                bot.sendMessage(chat_id, "Daftar Perintah : /start, /waktu, /bantuan.")
+                bot.sendMessage(chat_id, "Perintah /start -> untuk menampilkan pesan selamat datang.")
+                bot.sendMessage(chat_id, "Perintah /waktu -> untuk menampilkan tanggal dan waktu server.")
+                bot.sendMessage(chat_id, "Perintah /bantuan -> untuk menampilkan pesan-pesan bantuan ini.")
+                bot.sendMessage(chat_id, "Perintah /pwd -> untuk login kedalam sistem. Cara penggunaan : '/pwd Password_Anda'.")
+                bot.sendMessage(chat_id, "Perintah /listdevice -> untuk menampilkan daftar ID Device beserta nama dan lokasi pin device.")
+                bot.sendMessage(chat_id, "Perintah /on -> untuk menghidupkan device. Cara penggunaannya, untuk menghidupkan device tertentu perintahnya : '/on ID_Device' dan untuk menghidupkan semua device, perintahnya : '/on semua'.")
+                bot.sendMessage(chat_id, "Perintah /off -> untuk mematikan device. Cara penggunaannya, untuk mematikan device tertentu perintahnya : '/off ID_Device' dan untuk mematikan semua device, perintahnya : '/off semua'.")
+                bot.sendMessage(chat_id, "Perintah /status -> untuk melihat status device. Cara penggunaannya, untuk melihat status device tertentu perintahnya : '/status ID_Device' dan untuk melihat status semua device, perintahnya : '/status semua'.")
+                bot.sendMessage(chat_id, "Perintah /info -> untuk membaca sensor. Cara penggunaan :'/info TipeSensor'. (Tipe Sensor yang tersedia : 'suhu').")
         elif command_cmd == '/pwd':
                 if function.cekpass(chat_id, command_split[1]):
                         bot.sendMessage(chat_id, "Login Sukses.")
@@ -50,7 +58,7 @@ def handle(msg):
                         if command_split[1] == 'suhu':
                                 bot.sendMessage(chat_id, function.suhu())
                         else:
-                                bot.sendMessage(chat_id, "Lokasi tidak diketahui.")
+                                bot.sendMessage(chat_id, "Sensor tidak ada.")
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/status':
