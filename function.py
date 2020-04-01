@@ -89,3 +89,32 @@ def offalldevice(chat_id):
                 # Untuk device lain selain relay, ganti GPIO.HIGH menjadi GPIO.LOW
                 GPIO.output(DEVICE_PIN,GPIO.HIGH)
                 bot.sendMessage(chat_id,element['namadevice'] + " Mati")
+
+# Fungsi untuk mendapatkan status device tertentu
+def statdevice(devid):
+        for element in output.output_array:
+                if element['iddevice'] == devid:
+                        DEVICE_PIN = int(element['gpiopin'])
+                        GPIO.setmode(GPIO.BCM)
+                        state = GPIO.input(DEVICE_PIN)
+
+                        # Untuk device lain selain relay, ganti Mati menjadi Hidup dan sebaliknya
+                        if state:
+                                return element['namadevice'] + " Mati"
+                        else:
+                                return element['namadevice'] + " Hidup"
+        else:
+                return "ID Device " + str(devid) + " tidak ditemukan"
+
+# Fungsi untuk mendapatkan status semua device
+def statalldevice(chat_id):
+        for element in output.output_array:
+                DEVICE_PIN = int(element['gpiopin'])
+                GPIO.setmode(GPIO.BCM)
+                state = GPIO.input(DEVICE_PIN)
+
+                # Untuk device lain selain relay, ganti Mati menjadi Hidup dan sebaliknya
+                if state:
+                        bot.sendMessage(chat_id,element['namadevice'] + " Mati")
+                else:
+                        bot.sendMessage(chat_id,element['namadevice'] + " Hidup")

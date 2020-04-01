@@ -54,7 +54,13 @@ def handle(msg):
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/status':
-                bot.sendMessage(chat_id,"Test")
+                if function.cekpass(chat_id,login.password_sekarang):
+                        if command_split[1] != 'semua':
+                                bot.sendMessage(chat_id,function.statdevice(command_split[1]))
+                        elif command_split[1] == 'semua':
+                                function.statalldevice(chat_id)
+                else:
+                        bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         else:
                 bot.sendMessage(chat_id, "Perintah tidak ditemukan, gunakan /bantuan untuk melihat bantuan yang ada.")
 
