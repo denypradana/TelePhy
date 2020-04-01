@@ -1,5 +1,5 @@
 from datetime import datetime
-from signal import pause
+
 import input
 import output
 import login
@@ -42,7 +42,6 @@ def ondevice(devid):
                         output.DEVICE_PIN = int(element['gpiopin'])
                         #deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         output.deviceout.on()
-                        pause()
                         return element['namadevice'] + " Hidup pada pin " + str(output.DEVICE_PIN)
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
