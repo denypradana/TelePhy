@@ -3,30 +3,7 @@ from gpiozero import OutputDevice
 
 import function
 import login
-import output
 import telegram
-
-# Fungsi untuk menghidupkan device
-def ondevice(devid):
-        for element in output.output_array:
-                if element['iddevice'] == devid:
-                        DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceswitch.on()
-                        return element['namadevice'] + " Hidup"
-        else:
-                return "ID Device " + str(devid) + " tidak ditemukan"
-
-# Fungsi untuk mematikan device
-def offdevice(devid):
-        for element in output.output_array:
-                if element['iddevice'] == devid:
-                        DEVICE_PIN = int(element['gpiopin'])
-                        deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
-                        deviceswitch.off()
-                        return element['namadevice'] + " Mati"
-        else:
-                return "ID Device " + str(devid) + " tidak ditemukan"
 
 # Fungsi Utama
 def handle(msg):
@@ -55,12 +32,12 @@ def handle(msg):
                         bot.sendMessage(chat_id, "Maaf, password salah atau user tidak terdaftar, silahkan coba lagi.")
         elif command_cmd == '/on':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        bot.sendMessage(chat_id,ondevice(command_split[1]))
+                        bot.sendMessage(chat_id,function.ondevice(command_split[1]))
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/off':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        bot.sendMessage(chat_id,offdevice(command_split[1]))
+                        bot.sendMessage(chat_id,function.offdevice(command_split[1]))
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/info':
