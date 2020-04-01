@@ -39,7 +39,7 @@ def cekpass(uid,pwd):
 def ondevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
-                        deviceout = gpiozero.OutputDevice(int(element['gpiopin']),active_high=False,initial_value=False)
+                        deviceout = gpiozero.OutputDevice(1,active_high=False,initial_value=False)
                         deviceout.on()
                         return element['namadevice'] + " Hidup"
         else:
@@ -49,7 +49,7 @@ def ondevice(devid):
 def offdevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
-                        deviceout = gpiozero.OutputDevice(int(element['gpiopin']),active_high=False,initial_value=False)
+                        deviceout = gpiozero.OutputDevice(1,active_high=False,initial_value=False)
                         deviceout.off()
                         return element['namadevice'] + " Mati"
         else:
