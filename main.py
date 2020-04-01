@@ -80,15 +80,16 @@ def handle(msg):
 # Inisialisasi bot telegram
 bot = telegram.bot
 bot.message_loop(handle)
-print('################################################')
-print('# TelePhy versi 0.2                            #')
-print('# kontrol RaspberryPi anda dengan bot telegram #')
-print('# dibuat oleh Deny Pradana                     #')
-print('#                                              #')
-print('# https://denypradana.com                      #')
-print('# email : dp@denypradana.com                   #')
-print('################################################')
-print('Menunggu Perintah...')
+print("################################################")
+print("# TelePhy versi 0.2                            #")
+print("# kontrol RaspberryPi anda dengan bot telegram #")
+print("# dibuat oleh Deny Pradana                     #")
+print("#                                              #")
+print("# https://denypradana.com                      #")
+print("# email : dp@denypradana.com                   #")
+print("################################################")
+print("Program mulai berjalan pada tanggal " + function.tanggal() + " pukul " + function.jam() + ".")
+print("Menunggu Perintah...")
 
 try:
         while 1:
