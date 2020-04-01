@@ -41,7 +41,7 @@ def ondevice(devid):
                 if element['iddevice'] == devid:
                         deviceout = gpiozero.OutputDevice(1,active_high=False,initial_value=False)
                         deviceout.on()
-                        return element['namadevice'] + " Hidup"
+                        return element['namadevice'] + " Hidup pada pin " + element['gpiopin']
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
 
