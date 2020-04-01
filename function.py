@@ -78,10 +78,6 @@ def onalldevice(chat_id):
                 # Untuk device lain selain relay, ganti GPIO.LOW menjadi GPIO.HIGH
                 GPIO.output(DEVICE_PIN,GPIO.LOW)
                 bot.sendMessage(chat_id,element['namadevice'] + " Hidup")
-                #return element['namadevice'] + " Hidup"
-        else:
-                bot.sendMessage(chat_id,"Error tidak diketahui")
-                #return "Error tidak diketahui"
 
 # Fungsi untuk mematikan semua device
 def offalldevice(chat_id):
@@ -93,7 +89,3 @@ def offalldevice(chat_id):
                 # Untuk device lain selain relay, ganti GPIO.HIGH menjadi GPIO.LOW
                 GPIO.output(DEVICE_PIN,GPIO.HIGH)
                 bot.sendMessage(chat_id,element['namadevice'] + " Mati")
-                #return element['namadevice'] + " Mati"
-        else:
-                bot.sendMessage(chat_id,"Error tidak diketahui")
-                #return "Error tidak diketahui"
