@@ -3,7 +3,6 @@ import RPi.GPIO as GPIO
 import input
 import output
 import login
-import json
 
 # Menyembunyikan warning dari GPIO
 GPIO.setwarnings(False)
@@ -58,7 +57,7 @@ def offdevice(devid):
                         DEVICE_PIN = int(element['gpiopin'])
                         GPIO.setmode(GPIO.BCM)
                         GPIO.setup(DEVICE_PIN,GPIO.OUT)
-                        
+
                         # Untuk device lain selain relay, ganti GPIO.HIGH menjadi GPIO.LOW
                         GPIO.output(DEVICE_PIN,GPIO.HIGH)
                         return element['namadevice'] + " Mati"
