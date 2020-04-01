@@ -1,4 +1,5 @@
-import time
+from time import sleep
+
 import function
 import login
 import output
@@ -67,6 +68,6 @@ print('Menunggu Perintah...')
 
 try:
         while 1:
-                time.sleep(10)
+                sleep(10)
 except KeyboardInterrupt:
         print('Sambungan Terputus')

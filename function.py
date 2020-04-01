@@ -43,7 +43,6 @@ def ondevice(devid):
                         DEVICE_PIN = int(element['gpiopin'])
                         deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         deviceswitch.on()
-                        sleep(1)
                         return element['namadevice'] + " Hidup"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
@@ -55,7 +54,12 @@ def offdevice(devid):
                         DEVICE_PIN = int(element['gpiopin'])
                         deviceswitch = OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         deviceswitch.off()
-                        sleep(1)
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
+
+try:
+        while 1:
+                sleep(10)
+except KeyboardInterrupt:
+        print('Fungsi Error')
