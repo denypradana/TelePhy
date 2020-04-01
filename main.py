@@ -33,7 +33,7 @@ def handle(msg):
         elif command_cmd == '/on':
                 if function.cekpass(chat_id,login.password_sekarang):
                         led=LED[1]
-                        led.on()
+                        led.off()
                         #bot.sendMessage(chat_id,function.ondevice(command_split[1]))
                         """
                         if command_split[1] == 'ruangdepan':
