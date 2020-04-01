@@ -47,6 +47,7 @@ def ondevice(devid):
                                 return element['namadevice'] + " Hidup"
                 else:
                         return "ID Device " + str(devid) + " tidak ditemukan"
+                sleep(1)
 
 # Fungsi untuk mematikan device
 def offdevice(devid):
