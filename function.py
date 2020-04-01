@@ -101,9 +101,9 @@ def statdevice(devid):
 
                         # Untuk device lain selain relay, ganti Mati menjadi Hidup dan sebaliknya
                         if state:
-                                return element['namadevice'] + " Mati"
+                                return element['namadevice'] + " dalam keadaan Mati"
                         else:
-                                return element['namadevice'] + " Hidup"
+                                return element['namadevice'] + " dalam keadaan Hidup"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
 
@@ -117,6 +117,11 @@ def statalldevice(chat_id):
 
                 # Untuk device lain selain relay, ganti Mati menjadi Hidup dan sebaliknya
                 if state:
-                        bot.sendMessage(chat_id,element['namadevice'] + " Mati")
+                        bot.sendMessage(chat_id,element['namadevice'] + " dalam keadaan Mati")
                 else:
-                        bot.sendMessage(chat_id,element['namadevice'] + " Hidup")
+                        bot.sendMessage(chat_id,element['namadevice'] + " dalam keadaan Hidup")
+
+# Fungsi untuk mendapatkan list semua device
+def listdevice(chat_id):
+        for element in output.output_array:
+                bot.sendMessage(chat_id,"ID Device : " + element['iddevice'] + ". Nama Device :" + element['namadevice'] + " & Lokasi Device di GPIO" + element['gpiopin'])

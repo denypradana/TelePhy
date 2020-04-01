@@ -61,6 +61,8 @@ def handle(msg):
                                 function.statalldevice(chat_id)
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
+        elif command_cmd == '/listdevice':
+                function.listdevice(chat_id)
         else:
                 bot.sendMessage(chat_id, "Perintah tidak ditemukan, gunakan /bantuan untuk melihat bantuan yang ada.")
 
