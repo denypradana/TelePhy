@@ -1,5 +1,4 @@
 from time import sleep
-from gpiozero import OutputDevice
 
 import function
 import login
