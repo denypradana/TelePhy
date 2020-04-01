@@ -1,12 +1,11 @@
 from datetime import datetime
-from signal import pause
 import RPi.GPIO as GPIO
-
 import input
 import output
 import login
 import json
 
+GPIO.setwarnings(False)
 # Fungsi untuk membaca suhu dari sensor yang ada pada modul input
 def suhu():
         humidity, temperature = input.Adafruit_DHT.read_retry(input.DHT1_SENSOR, input.DHT1_PIN)
@@ -56,7 +55,6 @@ def offdevice(devid):
                         GPIO.setmode(GPIO.BCM)
                         GPIO.setup(DEVICE_PIN,GPIO.OUT)
                         GPIO.output(DEVICE_PIN,GPIO.HIGH)
-                        GPIO.cleanup()
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
