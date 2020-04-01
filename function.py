@@ -41,10 +41,8 @@ def ondevice(devid):
                 if element['iddevice'] == devid:
                         deviceout = gpiozero.OutputDevice(element['gpiopin'],active_high=False,initial_value=False)
                         deviceout.on()
-                        status = output.output_array
-                        status["status"] = "ON"
-                        status["iddevice"] = devid
-                        json.dumps(status)
+                        status = output.output_data
+                        status[devid]['status'] = "ON"
                         return element['namadevice'] + " Hidup"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
@@ -55,10 +53,8 @@ def offdevice(devid):
                 if element['iddevice'] == devid:
                         deviceout = gpiozero.OutputDevice(element['gpiopin'],active_high=False,initial_value=False)
                         deviceout.off()
-                        status = output.output_array
-                        status["status"] = "OFF"
-                        status["iddevice"] = devid
-                        json.dumps(status)
+                        status = output.output_data
+                        status[devid]['status'] ="OFF"
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
