@@ -42,7 +42,7 @@ def ondevice(devid):
                         output.DEVICE_PIN = int(element['gpiopin'])
                         #deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         output.deviceout.on()
-                        return element['namadevice'] + " Hidup pada pin " + str(DEVICE_PIN)
+                        return element['namadevice'] + " Hidup pada pin " + str(output.DEVICE_PIN)
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
 
@@ -53,6 +53,6 @@ def offdevice(devid):
                         output.DEVICE_PIN = int(element['gpiopin'])
                         #deviceout = gpiozero.OutputDevice(DEVICE_PIN, active_high=False, initial_value=False)
                         output.deviceout.off()
-                        return element['namadevice'] + " Mati pada pin " + str(DEVICE_PIN)
+                        return element['namadevice'] + " Mati pada pin " + str(output.DEVICE_PIN)
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
