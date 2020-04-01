@@ -34,7 +34,7 @@ def cekpass(uid,pwd):
         else:
                 login.password_sekarang = ""
                 return False
-
+"""
 # Fungsi untuk menghidupkan device
 def ondevice(devid):
         for element in output.output_array:
@@ -55,3 +55,4 @@ def offdevice(devid):
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
+"""
