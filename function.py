@@ -1,6 +1,10 @@
 from datetime import datetime
+
 import input
+import output
 import login
+import gpiozero
+import json
 
 # Fungsi untuk membaca suhu dari sensor yang ada pada modul input
 def suhu():
@@ -30,3 +34,27 @@ def cekpass(uid,pwd):
         else:
                 login.password_sekarang = ""
                 return False
+
+# Fungsi untuk menghidupkan device
+def ondevice(devid):
+        for element in output.output_array:
+                if element['iddevice'] == str(devid):
+                        deviceout = gpiozero.OutputDevice(element['gpiopin'],active_high=False,initial_value=False)
+                        deviceout.on()
+                        status["status"] = "ON"
+                        json.dumps(status,output.output_data)
+                        return element['namadevice'] + " Hidup"
+        else:
+                return "ID Device " + str(devid) + " tidak ditemukan"
+
+# Fungsi untuk mematikan device
+def offdevice(devid):
+        for element in output.output_array:
+                if element['iddevice'] == str(devid):
+                        deviceout = gpiozero.OutputDevice(element['gpiopin'],active_high=False,initial_value=False)
+                        deviceout.off()
+                        status["status"] = "OFF"
+                        json.dumps(status,output.output_data)
+                        return element['namadevice'] + " Mati"
+        else:
+                return "ID Device " + str(devid) + " tidak ditemukan"

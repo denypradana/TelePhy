@@ -1,5 +1,8 @@
+import json
 import gpiozero
 
+output_data = '[{"idruangan":"ruangdepan","namaruangan":"Ruang Depan","status":"OFF","gpiopin":1},{"idruangan":"ruangtengah","namaruangan":"Ruang Tengah","status":"OFF","gpiopin":2},{"idruangan":"ruangbelakang","namaruangan":"Ruang Belakang","status":"OFF","gpiopin":3},{"idruangan":"ruangatas","namaruangan":"Ruang Atas","status":"OFF","gpiopin":4}]'
+output_array = json.loads(output_data)
 # Inisialisasi GPIO, menentukan pin yang digunakan untuk output. 
 RELAY1_PIN = 1
 RELAY2_PIN = 2
