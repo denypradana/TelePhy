@@ -36,7 +36,7 @@ def cekpass(uid,pwd):
                 login.password_sekarang = ""
                 return False
 
-# Fungsi untuk menghidupkan device
+# Fungsi untuk menghidupkan device tertentu
 def ondevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
@@ -50,7 +50,7 @@ def ondevice(devid):
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
 
-# Fungsi untuk mematikan device
+# Fungsi untuk mematikan device tertentu
 def offdevice(devid):
         for element in output.output_array:
                 if element['iddevice'] == devid:
@@ -63,3 +63,29 @@ def offdevice(devid):
                         return element['namadevice'] + " Mati"
         else:
                 return "ID Device " + str(devid) + " tidak ditemukan"
+
+# Fungsi untuk menghidupkan semua device
+def onalldevice():
+        for element in output.output_array:
+                DEVICE_PIN = int(element['gpiopin'])
+                GPIO.setmode(GPIO.BCM)
+                GPIO.setup(DEVICE_PIN,GPIO.OUT)
+
+                # Untuk device lain selain relay, ganti GPIO.LOW menjadi GPIO.HIGH
+                GPIO.output(DEVICE_PIN,GPIO.LOW)
+                return element['namadevice'] + " Hidup"
+        else:
+                return "Error tidak diketahui"
+
+# Fungsi untuk mematikan semua device
+def onalldevice():
+        for element in output.output_array:
+                DEVICE_PIN = int(element['gpiopin'])
+                GPIO.setmode(GPIO.BCM)
+                GPIO.setup(DEVICE_PIN,GPIO.OUT)
+
+                # Untuk device lain selain relay, ganti GPIO.HIGH menjadi GPIO.LOW
+                GPIO.output(DEVICE_PIN,GPIO.HIGH)
+                return element['namadevice'] + " Mati"
+        else:
+                return "Error tidak diketahui"

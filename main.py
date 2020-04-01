@@ -31,7 +31,10 @@ def handle(msg):
                         bot.sendMessage(chat_id, "Maaf, password salah atau user tidak terdaftar, silahkan coba lagi.")
         elif command_cmd == '/on':
                 if function.cekpass(chat_id,login.password_sekarang):
-                        bot.sendMessage(chat_id,function.ondevice(command_split[1]))
+                        if command_split[1] != 'semua':
+                                bot.sendMessage(chat_id,function.ondevice(command_split[1]))
+                        elif command_split[1] == 'semua':
+                                bot.sendMessage(chat_id,function.onalldevice())
                 else:
                         bot.sendMessage(chat_id, "Anda belum login, harap login dahulu dengan perintah /pwd PasswordAnda.")
         elif command_cmd == '/off':
