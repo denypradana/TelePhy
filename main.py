@@ -56,7 +56,7 @@ def handle(msg):
 bot = telegram.bot
 bot.message_loop(handle)
 print('################################################')
-print('# TelePhy versi 0.1                            #')
+print('# TelePhy versi 0.2                            #')
 print('# kontrol RaspberryPi anda dengan bot telegram #')
 print('# dibuat oleh Deny Pradana                     #')
 print('#                                              #')
