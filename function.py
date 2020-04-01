@@ -78,7 +78,7 @@ def onalldevice():
                 return "Error tidak diketahui"
 
 # Fungsi untuk mematikan semua device
-def onalldevice():
+def offalldevice():
         for element in output.output_array:
                 DEVICE_PIN = int(element['gpiopin'])
                 GPIO.setmode(GPIO.BCM)
