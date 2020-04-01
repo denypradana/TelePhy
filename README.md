@@ -15,7 +15,7 @@ pi@raspberrypi:~$ sudo pip3 install telepot
 Untuk OS lain, anda bisa menginstall requirements dengan menggunakan perintah berikut :
 
 ```
-pi@raspberrypi:~/telephy $ sudo pip3 install -r requirements.txt 
+pi@raspberrypi:~/TelePhy $ sudo pip3 install -r requirements.txt 
 ```
 
 **Note :** Bila anda menggunakan sensor DHT untuk mengukur suhu dan kelembaban, anda harus menginstall library khusus dari Adafruit, caranya adalah sebagai berikut :
@@ -34,5 +34,5 @@ pi@raspberrypi:~/Adafruit_Python_DHT $ sudo python3 setup.py install
 Untuk menjalankan TelePhy, gunakan perintah berikut :
 
 ```
-pi@raspberrypi:~/telephy $ python3 telephy.py
+pi@raspberrypi:~/TelePhy $ python3 main.py
 ```
