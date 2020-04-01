@@ -1,2 +1,2 @@
 telepot
-gpiozero
+RPi.GPIO

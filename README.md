@@ -8,7 +8,6 @@ Bila RaspberryPi anda menggunakan OS Raspbian, anda bisa menginstal requirements
 
 ```
 pi@raspberrypi:~$ sudo apt update
-pi@raspberrypi:~$ sudo apt install python3-gpiozero
 pi@raspberrypi:~$ sudo pip3 install telepot
 ```
 

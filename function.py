@@ -5,7 +5,9 @@ import output
 import login
 import json
 
+# Menyembunyikan warning dari GPIO
 GPIO.setwarnings(False)
+
 # Fungsi untuk membaca suhu dari sensor yang ada pada modul input
 def suhu():
         humidity, temperature = input.Adafruit_DHT.read_retry(input.DHT1_SENSOR, input.DHT1_PIN)
@@ -42,6 +44,8 @@ def ondevice(devid):
                         DEVICE_PIN = int(element['gpiopin'])
                         GPIO.setmode(GPIO.BCM)
                         GPIO.setup(DEVICE_PIN,GPIO.OUT)
+
+                        # Untuk device lain selain relay, ganti GPIO.LOW menjadi GPIO.HIGH
                         GPIO.output(DEVICE_PIN,GPIO.LOW)
                         return element['namadevice'] + " Hidup"
         else:
@@ -54,6 +58,8 @@ def offdevice(devid):
                         DEVICE_PIN = int(element['gpiopin'])
                         GPIO.setmode(GPIO.BCM)
                         GPIO.setup(DEVICE_PIN,GPIO.OUT)
+                        
+                        # Untuk device lain selain relay, ganti GPIO.HIGH menjadi GPIO.LOW
                         GPIO.output(DEVICE_PIN,GPIO.HIGH)
                         return element['namadevice'] + " Mati"
         else:
