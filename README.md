@@ -1,4 +1,4 @@
-# TelePhy
+# TelePhy ver 1.0
 Kontrol Raspberry Pi anda menggunakan Bot Telegram.
 
 TelePhy dibuat menggunakan bahasa pemrograman Python 3, jadi pastikan anda menggunakan requirements yang dibuat untuk Python 3.

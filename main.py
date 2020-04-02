@@ -1,12 +1,12 @@
 from time import sleep
-
 import function
 import login
 import telegram
 
-# Fungsi Utama
+# Fungsi utama untuk menghandle semua perintah masuk
 def handle(msg):
 
+        # Mendapatkan ID user dan Perintah yang dikirimkan
         chat_id = msg['chat']['id']
         command = msg['text']
 
@@ -14,7 +14,7 @@ def handle(msg):
         command_split = command.split(' ')
         command_cmd = command_split[0]
 
-        # Menampilkan perintah yang diterima dari user
+        # Menampilkan perintah yang diterima dari user beserta detail tanggal, waktu, serta ID user yang mengirimkan perintah
         print("Pada "+ str(function.tanggal()) + " "+ str(function.jam()) + ", user id " + str(chat_id) + " memberikan perintah '" + str(command) + "'.")
 
         # Melakukan aksi berdasarkan perintah yang diterima
@@ -28,9 +28,9 @@ def handle(msg):
                 bot.sendMessage(chat_id, "Perintah /bantuan -> untuk menampilkan pesan-pesan bantuan ini.")
                 bot.sendMessage(chat_id, "Perintah /pwd -> untuk login kedalam sistem. Cara penggunaan : '/pwd Password_Anda'.")
                 bot.sendMessage(chat_id, "Perintah /listdevice -> untuk menampilkan daftar ID Device beserta nama dan lokasi pin device.")
-                bot.sendMessage(chat_id, "Perintah /on -> untuk menghidupkan device. Cara penggunaannya, untuk menghidupkan device tertentu perintahnya : '/on ID_Device' dan untuk menghidupkan semua device, perintahnya : '/on semua'.")
-                bot.sendMessage(chat_id, "Perintah /off -> untuk mematikan device. Cara penggunaannya, untuk mematikan device tertentu perintahnya : '/off ID_Device' dan untuk mematikan semua device, perintahnya : '/off semua'.")
-                bot.sendMessage(chat_id, "Perintah /status -> untuk melihat status device. Cara penggunaannya, untuk melihat status device tertentu perintahnya : '/status ID_Device' dan untuk melihat status semua device, perintahnya : '/status semua'.")
+                bot.sendMessage(chat_id, "Perintah /on -> untuk menghidupkan device. Cara penggunaannya, untuk menghidupkan device tertentu, perintahnya : '/on ID_Device' dan untuk menghidupkan semua device, perintahnya : '/on semua'.")
+                bot.sendMessage(chat_id, "Perintah /off -> untuk mematikan device. Cara penggunaannya, untuk mematikan device tertentu, perintahnya : '/off ID_Device' dan untuk mematikan semua device, perintahnya : '/off semua'.")
+                bot.sendMessage(chat_id, "Perintah /status -> untuk melihat status device. Cara penggunaannya, untuk melihat status device tertentu, perintahnya : '/status ID_Device' dan untuk melihat status semua device, perintahnya : '/status semua'.")
                 bot.sendMessage(chat_id, "Perintah /info -> untuk membaca sensor. Cara penggunaan :'/info TipeSensor'. (Tipe Sensor yang tersedia : 'suhu').")
         elif command_cmd == '/pwd':
                 if function.cekpass(chat_id, command_split[1]):
@@ -83,14 +83,16 @@ bot.message_loop(handle)
 print("################################################")
 print("# TelePhy versi 1.0                            #")
 print("# kontrol RaspberryPi anda dengan bot telegram #")
-print("# dibuat oleh Deny Pradana                     #")
+print("# https://github.com/denypradana/TelePhy       #")
 print("#                                              #")
+print("# dibuat oleh Deny Pradana                     #")
 print("# https://denypradana.com                      #")
 print("# email : dp@denypradana.com                   #")
 print("################################################")
 print("Program mulai berjalan pada tanggal " + function.tanggal() + " pukul " + function.jam() + ".")
 print("Menunggu Perintah...")
 
+# Menjaga agar program tetap berjalan dan hanya akan berhenti apabila ada perintah CTRL + C
 try:
         while 1:
                 sleep(10)

@@ -8,7 +8,7 @@ import telegram
 # Menyembunyikan warning dari GPIO
 GPIO.setwarnings(False)
 
-# Inisialisasi bit telegram
+# Inisialisasi bot telegram
 bot = telegram.bot
 
 # Fungsi untuk membaca suhu dari sensor yang ada pada modul input
