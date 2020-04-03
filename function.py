@@ -154,6 +154,7 @@ def statdevice(devid):
                         if state: 
                                 return element['namadevice']\
                                         + " dalam keadaan Mati"
+                                        
                         else:
                                 return element['namadevice']\
                                         + " dalam keadaan Hidup"

@@ -175,5 +175,6 @@ apabila ada perintah CTRL + C
 try:
         while 1:
                 sleep(10)
+                
 except KeyboardInterrupt:
         print('Sambungan Terputus')
