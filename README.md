@@ -3,6 +3,7 @@ Kontrol Raspberry Pi anda menggunakan Bot Telegram.
 
 TelePhy dibuat menggunakan bahasa pemrograman Python 3, jadi pastikan anda menggunakan requirements yang dibuat untuk Python 3.
 
+
 ## Install Requirements
 Bila RaspberryPi anda menggunakan OS Raspbian, anda bisa menginstal requirements dengan cara sebagai berikut :
 
@@ -29,12 +30,16 @@ pi@raspberrypi:~$ cd Adafruit_Python_DHT
 pi@raspberrypi:~/Adafruit_Python_DHT $ sudo python3 setup.py install
 ```
 
+
 ## Menjalankan TelePhy
 Untuk menjalankan TelePhy, gunakan perintah berikut :
 
 ```
 pi@raspberrypi:~/TelePhy $ python3 main.py
 ```
+
+**Note :** Semua perintah yang dikirimkan lewat telegram bersifat **case-sensitive**, jadi perhatikan perbedaan huruf besar dan huruf kecil dalam pengetikan perintah.
+
 
 ## Konfigurasi TelePhy
 File Konfigurasi TelePhy terdapat pada beberapa file sesuai dengan konfigurasinya, edit file-file berikut ini untuk mengganti konfigurasi :
