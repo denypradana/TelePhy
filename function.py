@@ -66,8 +66,7 @@ def ondevice(devid):
 
                         GPIO.output(DEVICE_PIN,GPIO.LOW)
 
-                        return element['namadevice']\
-                                + " Hidup"
+                        return statdevice(devid)
 
         else:
                 return "ID Device "\
@@ -90,8 +89,7 @@ def offdevice(devid):
 
                         GPIO.output(DEVICE_PIN,GPIO.HIGH)
 
-                        return element['namadevice']\
-                                + " Mati"
+                        return statdevice(devid)
 
         else:
                 return "ID Device "\
@@ -114,8 +112,7 @@ def onalldevice(chat_id):
                 GPIO.output(DEVICE_PIN,GPIO.LOW)
 
                 bot.sendMessage(chat_id,
-                                element['namadevice']
-                                + " Hidup")
+                                statdevice(element['iddevice']))
 
 # Fungsi untuk mematikan semua device
 def offalldevice(chat_id):
@@ -133,8 +130,7 @@ def offalldevice(chat_id):
                 GPIO.output(DEVICE_PIN,GPIO.HIGH)
 
                 bot.sendMessage(chat_id,
-                                element['namadevice']
-                                + " Mati")
+                                statdevice(element['iddevice']))
 
 # Fungsi untuk mendapatkan status device tertentu
 def statdevice(devid):
